@@ -3,130 +3,635 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adobe Live | Where Creativity Meets Community</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Adobe Live | Central Hub for Creatives</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e5e5e5}
-        :root{--pink:#ff1493}
-        .container{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
-        .header{text-align:center;margin-bottom:2.5rem}
-        .logo{font-size:3rem;font-weight:800;background:linear-gradient(135deg,var(--pink),#ff66b5);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .tagline{font-size:1.1rem;color:#aaa}
-        .mission{max-width:700px;margin:1rem auto 0;font-size:0.9rem;color:#888;line-height:1.6}
-        .section{background:#0f0f0f;border-radius:28px;padding:1.8rem;margin-bottom:1.8rem;border:1px solid #222}
-        .section-title{font-size:1.3rem;font-weight:600;margin-bottom:1.5rem;color:#fff;display:flex;align-items:center;gap:0.5rem}
-        .pink-dot{width:8px;height:8px;background:var(--pink);border-radius:50%}
-        .live-badge{background:var(--pink);color:#fff;font-size:0.65rem;padding:0.2rem 0.8rem;border-radius:40px;margin-left:0.75rem;animation:pulse 1.8s infinite}
-        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.65}}
-        .video-embed{position:relative;padding-bottom:56.25%;margin-bottom:1.25rem;border-radius:20px;overflow:hidden}
-        .video-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
-        .watch-btn{display:inline-block;background:linear-gradient(135deg,var(--pink),#b80e6b);color:#fff;text-decoration:none;padding:0.75rem 1.8rem;border-radius:60px;font-weight:600}
-        .schedule-list{display:flex;flex-direction:column;gap:0.75rem}
-        .schedule-item{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;padding:1rem;background:#0c0c0c;border-radius:20px;border:1px solid #1a1a1a}
-        .schedule-day{font-weight:700;color:var(--pink);font-size:0.75rem;min-width:80px}
-        .schedule-time{font-weight:600;color:#aaa;font-size:0.75rem;min-width:90px}
-        .schedule-title{flex:2;font-weight:600;font-size:0.9rem;color:#fff}
-        .schedule-description{flex:3;font-size:0.8rem;color:#888}
-        .schedule-tools{display:flex;gap:0.5rem;flex-wrap:wrap}
-        .tool-tag{background:#1a1a1a;padding:0.2rem 0.7rem;border-radius:30px;font-size:0.7rem;color:#bbb;border:1px solid #2a2a2a}
-        .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:0.8rem}
-        .tool-btn{background:#111;border:1px solid #252525;color:#e0e0e0;padding:0.85rem 0.5rem;border-radius:60px;font-weight:600;text-align:center;text-decoration:none;display:block}
-        .tool-btn:hover{background:var(--pink);color:#fff}
-        .tutorials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
-        .tutorial-card{background:#0c0c0c;border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;border:1px solid #1c1c1c}
-        .tutorial-card:hover{transform:translateY(-4px);border-color:var(--pink)}
-        .tutorial-thumb{width:100%;aspect-ratio:16/9;object-fit:cover}
-        .tutorial-info{padding:1rem}
-        .tutorial-title{font-weight:600;font-size:0.9rem}
-        .community-row{display:flex;flex-wrap:wrap;gap:1.5rem}
-        .discord-card{flex:1;background:#0c0c0c;border-radius:24px;padding:1.5rem;text-align:center;border:1px solid #1c1c1c}
-        .member-count{display:inline-flex;align-items:center;gap:0.6rem;background:#111;padding:0.4rem 1.2rem;border-radius:60px;margin:1rem 0}
-        .member-count .number{color:var(--pink)}
-        .join-btn{display:inline-block;background:#5865f2;color:#fff;text-decoration:none;padding:0.7rem 1.5rem;border-radius:60px;font-weight:600}
-        .spotlight{flex:2;background:#0c0c0c;border-radius:24px;padding:1.5rem;border:1px solid #1c1c1c}
-        .spotlight-img{width:100%;border-radius:16px;margin-top:1rem;aspect-ratio:16/9;object-fit:cover}
-        .resources-grid{display:flex;flex-wrap:wrap;gap:0.8rem}
-        .resource-link{background:#0c0c0c;padding:0.6rem 1.2rem;border-radius:60px;text-decoration:none;color:#ddd;font-size:0.8rem;border:1px solid #252525}
-        .resource-link:hover{background:var(--pink);color:#fff}
-        .social-footer{text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid #1a1a1a}
-        .social-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.2rem}
-        .social-icon{background:#0c0c0c;width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#ddd;border:1px solid #2a2a2a}
-        .social-icon:hover{background:var(--pink);color:#fff}
-        .copyright{font-size:0.7rem;color:#555}
-        @media(max-width:768px){.container{padding:1rem}.section{padding:1.2rem}.schedule-item{flex-direction:column;align-items:flex-start}}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* RAINBOW + PINK ACCENTS */
+        :root {
+            --pink: #ff1493;
+            --pink-glow: #ff1493cc;
+            --gradient-rainbow: linear-gradient(135deg, #ff1493, #ff6b35, #ffd700, #00d4ff, #ff1493);
+            --gradient-pink: linear-gradient(135deg, #ff1493, #ff66b5);
+            --card-bg: #0f0f0f;
+            --border-subtle: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* HEADER — cleaner now */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: var(--gradient-rainbow);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #888;
+            letter-spacing: -0.01em;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-subtle);
+            transition: border-color 0.2s ease;
+        }
+        .section:hover {
+            border-color: #2a2a2a;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+        .pink-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--pink);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--pink);
+        }
+        .live-badge {
+            background: var(--pink);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            margin-left: 0.6rem;
+            animation: pulse 1.8s infinite;
+            letter-spacing: 0.3px;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.98); }
+        }
+
+        /* VIDEO SECTION */
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            margin-bottom: 1.25rem;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .watch-btn {
+            display: inline-block;
+            background: var(--gradient-pink);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(255,20,147,0.2);
+        }
+        .watch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255,20,147,0.3);
+        }
+
+        /* TUTORIAL GRID */
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.2rem;
+        }
+        .tutorial-card {
+            background: #0c0c0c;
+            border-radius: 24px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #1c1c1c;
+            transition: all 0.25s ease;
+        }
+        .tutorial-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--pink);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+        .tutorial-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        .tutorial-info {
+            padding: 1rem 1.2rem 1.2rem;
+        }
+        .tutorial-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.2px;
+        }
+        .tutorial-meta {
+            font-size: 0.7rem;
+            color: #666;
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.4rem;
+            font-weight: 400;
+        }
+
+        /* VISUAL TOOL CARDS — modern */
+        .visual-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .tool-visual-card {
+            background: #0c0c0c;
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #1c1c1c;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .tool-visual-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--pink);
+        }
+        .tool-thumb {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+        }
+        .tool-name {
+            padding: 0.8rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: -0.2px;
+        }
+
+        /* SCHEDULE */
+        .schedule-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            gap: 1rem;
+        }
+        .schedule-search input {
+            width: 260px;
+            padding: 0.7rem 1rem;
+            background: #0c0c0c;
+            border: 1px solid #2a2a2a;
+            border-radius: 60px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .schedule-search input:focus {
+            outline: none;
+            border-color: var(--pink);
+        }
+        .schedule-search input::placeholder {
+            color: #555;
+            font-weight: 400;
+        }
+        .show-more-btn {
+            background: rgba(255,20,147,0.1);
+            border: 1px solid #2a2a2a;
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .show-more-btn:hover {
+            background: var(--pink);
+            border-color: var(--pink);
+        }
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .schedule-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            background: #0c0c0c;
+            border-radius: 20px;
+            border: 1px solid #1a1a1a;
+            transition: all 0.15s;
+        }
+        .schedule-item:hover {
+            border-color: #333;
+        }
+        .schedule-day {
+            font-weight: 700;
+            color: var(--pink);
+            font-size: 0.7rem;
+            min-width: 80px;
+            letter-spacing: 0.3px;
+        }
+        .schedule-time {
+            font-weight: 500;
+            color: #aaa;
+            font-size: 0.7rem;
+            min-width: 90px;
+        }
+        .schedule-title {
+            flex: 2;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #fff;
+            letter-spacing: -0.2px;
+        }
+        .schedule-description {
+            flex: 3;
+            font-size: 0.75rem;
+            color: #777;
+        }
+        .schedule-tools {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .tool-tag {
+            background: #1a1a1a;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #bbb;
+            border: 1px solid #2a2a2a;
+        }
+        .schedule-item.hidden {
+            display: none;
+        }
+
+        /* COMMUNITY */
+        .community-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .discord-card {
+            flex: 1;
+            background: #0c0c0c;
+            border-radius: 24px;
+            padding: 1.8rem;
+            text-align: center;
+            border: 1px solid #1c1c1c;
+        }
+        .discord-card strong {
+            font-size: 1.1rem;
+            background: var(--gradient-pink);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .join-btn {
+            display: inline-block;
+            background: #5865f2;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+        .join-btn:hover {
+            transform: translateY(-2px);
+            background: #4752c4;
+        }
+        .spotlight {
+            flex: 2;
+            background: #0c0c0c;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #1c1c1c;
+        }
+        .spotlight strong {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .spotlight-img {
+            width: 100%;
+            border-radius: 16px;
+            margin-top: 1rem;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: #121212;
+        }
+
+        /* RESOURCES */
+        .resources-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+        .resource-link {
+            background: #0c0c0c;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            color: #ccc;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #252525;
+            transition: all 0.2s;
+        }
+        .resource-link:hover {
+            background: var(--pink);
+            color: #fff;
+            border-color: var(--pink);
+        }
+
+        /* FOOTER */
+        .social-footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .social-icon {
+            background: #0c0c0c;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #ccc;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: 1px solid #2a2a2a;
+            transition: all 0.2s;
+        }
+        .social-icon:hover {
+            background: var(--pink);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .copyright {
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 0.2px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .section { padding: 1.2rem; }
+            .schedule-item { flex-direction: column; align-items: flex-start; }
+            .schedule-search input { width: 100%; }
+            .logo { font-size: 2.8rem; }
+        }
     </style>
 </head>
 <body>
 <div class="container">
+    <!-- HEADER — clean, long subheader REMOVED -->
     <div class="header">
         <h1 class="logo">ADOBE LIVE</h1>
         <p class="tagline">Where Creativity Meets Community</p>
-        <div class="mission">Join Adobe's vibrant community of creatives for an engaging daily livestream experience, tailor-made to elevate your skill set and cultivate new talents. With Adobe Live, we are on a mission to empower individuals like you to unleash your full creative potential.</div>
     </div>
 
+    <!-- 1. LIVE NOW -->
     <div class="section">
-        <div class="section-title"><span class="pink-dot"></span> LIVE NOW <span class="live-badge">Live</span></div>
-        <div class="video-embed"><iframe src="https://www.youtube.com/embed/2KkMxCxGqMc?autoplay=0&modestbranding=1" allowfullscreen></iframe></div>
-        <div style="text-align:center"><a href="https://www.youtube.com/@AdobeLiveCommunity" class="watch-btn" target="_blank">Watch on YouTube →</a></div>
-    </div>
-
-    <div class="section">
-        <div class="section-title"><span class="pink-dot"></span> THIS WEEK AT ADOBE LIVE</div>
-        <div class="schedule-list">
-            <div class="schedule-item"><span class="schedule-day">MON</span><span class="schedule-time">9:00 AM PT</span><span class="schedule-title">Hyper Realistic Storytelling on Photoshop Mobile</span><span class="schedule-description">with Jack Faulkner</span><div class="schedule-tools"><span class="tool-tag">Photoshop</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">MON</span><span class="schedule-time">11:00 AM PT</span><span class="schedule-title">Virtual Plein Air (TikTok Version)</span><span class="schedule-description">with Maddy</span><div class="schedule-tools"><span class="tool-tag">Photoshop</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">TUE</span><span class="schedule-time">9:00 AM PT</span><span class="schedule-title">90s Nostalgia Poster with Ted Chin</span><span class="schedule-description">Firefly Boards → Photoshop → Express → Firefly Video</span><div class="schedule-tools"><span class="tool-tag">Express</span><span class="tool-tag">Firefly</span><span class="tool-tag">Photoshop</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">TUE</span><span class="schedule-time">10:00 AM PT</span><span class="schedule-title">Precision Flow and AI Markup | Adobe Office Hours</span><span class="schedule-description">with Andrew & Nick</span><div class="schedule-tools"><span class="tool-tag">Firefly</span><span class="tool-tag">Photoshop</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">WED</span><span class="schedule-time">9:00 AM PT</span><span class="schedule-title">Creating Design Templates to Save Time on Game Days</span><span class="schedule-description">with Jorges.psd</span><div class="schedule-tools"><span class="tool-tag">Photoshop</span><span class="tool-tag">Firefly</span><span class="tool-tag">Express</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">WED</span><span class="schedule-time">10:00 AM PT</span><span class="schedule-title">File New: Why The Masters Looked Like Mario Golf</span><span class="schedule-description">Weekly design news with Ryan Selvy</span><div class="schedule-tools"><span class="tool-tag">Premiere Pro</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">WED</span><span class="schedule-time">11:00 AM PT</span><span class="schedule-title">Cinema Collective: On the way to NAB</span><span class="schedule-description">NAB preview + Premiere effects</span><div class="schedule-tools"><span class="tool-tag">Premiere Pro</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">THU</span><span class="schedule-time">9:00 AM PT</span><span class="schedule-title">Colorgrading a Documentary Trailer</span><span class="schedule-description">with Colton Kooker</span><div class="schedule-tools"><span class="tool-tag">Premiere Pro Beta</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">THU</span><span class="schedule-time">10:00 AM PT</span><span class="schedule-title">Fast Color Grading in Premiere</span><span class="schedule-description">with Pixipui</span><div class="schedule-tools"><span class="tool-tag">Premiere Pro Beta</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">THU</span><span class="schedule-time">11:00 AM PT</span><span class="schedule-title">Space Case: Building an Art Licensing Collection</span><span class="schedule-description">with Jess Goldsmith</span><div class="schedule-tools"><span class="tool-tag">Firefly</span><span class="tool-tag">Illustrator</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">THU</span><span class="schedule-time">1:00 PM PT</span><span class="schedule-title">Chat Controls My Design! Live Poster Creation</span><span class="schedule-description">with Magdiel</span><div class="schedule-tools"><span class="tool-tag">Photoshop</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">FRI</span><span class="schedule-time">9:00 AM PT</span><span class="schedule-title">How to Use Premiere Color Mode</span><span class="schedule-description">with Ryan Selvy</span><div class="schedule-tools"><span class="tool-tag">Premiere Pro Beta</span></div></div>
-            <div class="schedule-item"><span class="schedule-day">FRI</span><span class="schedule-time">11:00 AM PT</span><span class="schedule-title">Designs That Stand Out! Student Session</span><span class="schedule-description">Adobe Express strategies</span><div class="schedule-tools"><span class="tool-tag">Express</span></div></div>
+        <div class="section-title">
+            <span class="pink-dot"></span> LIVE NOW 
+            <span class="live-badge">Live</span>
+        </div>
+        <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/2KkMxCxGqMc?autoplay=0&modestbranding=1" allowfullscreen></iframe>
+        </div>
+        <div style="text-align:center">
+            <a href="https://www.youtube.com/@AdobeLiveCommunity" class="watch-btn" target="_blank">Watch on YouTube →</a>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-title"><span class="pink-dot"></span> START LEARNING</div>
-        <div class="tool-grid">
-            <a href="https://www.youtube.com/watch?v=2KkMxCxGqMc&list=PLMMOwZoEbhuxPY2JftdLPXxIIcO7QRBu_" class="tool-btn" target="_blank">Firefly</a>
-            <a href="https://www.youtube.com/watch?v=1xsg8nNCtfc&list=PLMMOwZoEbhuwMImBhitwZ6PhRQak0615K" class="tool-btn" target="_blank">Lightroom</a>
-            <a href="https://www.youtube.com/watch?v=wrHfscQEY04&list=PLMMOwZoEbhuw4NszLQhE9uX_IdD5rpWA0" class="tool-btn" target="_blank">Premiere Pro</a>
-            <a href="https://www.youtube.com/watch?v=2KkMxCxGqMc&list=PLMMOwZoEbhuwaTuOc60tRTsokYGTdEG39" class="tool-btn" target="_blank">Photoshop</a>
-            <a href="https://www.youtube.com/watch?v=m6w7eP5AKvM&list=PLMMOwZoEbhuwZ1J8GmHW19P8pylsT7Z2_" class="tool-btn" target="_blank">Express</a>
-            <a href="https://www.youtube.com/watch?v=7xmBvmfzzsg&list=PLMMOwZoEbhuz4RamFC4qMOUXpHWZgyS3E" class="tool-btn" target="_blank">Illustrator</a>
-            <a href="https://www.youtube.com/watch?v=r_nrMp5Cl0g&list=PLMMOwZoEbhuyX2RL5LE8pThYxcwHjF8Mv" class="tool-btn" target="_blank">After Effects</a>
-        </div>
-    </div>
-
+    <!-- 2. LATEST TUTORIALS (moved higher) -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> LATEST TUTORIALS</div>
         <div class="tutorials-grid">
-            <a href="https://www.youtube.com/watch?v=m6w7eP5AKvM" class="tutorial-card" target="_blank"><img class="tutorial-thumb" src="https://img.youtube.com/vi/m6w7eP5AKvM/hqdefault.jpg"><div class="tutorial-info"><div class="tutorial-title">Adobe Express: Quick Social Graphics</div></div></a>
-            <a href="https://www.youtube.com/watch?v=bRjiz8NRtAQ" class="tutorial-card" target="_blank"><img class="tutorial-thumb" src="https://img.youtube.com/vi/bRjiz8NRtAQ/hqdefault.jpg"><div class="tutorial-info"><div class="tutorial-title">Premiere Pro: New Color Mode Guide</div></div></a>
+            <a href="https://www.youtube.com/watch?v=m6w7eP5AKvM" class="tutorial-card" target="_blank">
+                <img class="tutorial-thumb" src="https://img.youtube.com/vi/m6w7eP5AKvM/hqdefault.jpg">
+                <div class="tutorial-info">
+                    <div class="tutorial-title">Adobe Express: Quick Social Graphics</div>
+                    <div class="tutorial-meta">📅 Apr 2026 • 12 min • Express</div>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=bRjiz8NRtAQ" class="tutorial-card" target="_blank">
+                <img class="tutorial-thumb" src="https://img.youtube.com/vi/bRjiz8NRtAQ/hqdefault.jpg">
+                <div class="tutorial-info">
+                    <div class="tutorial-title">Premiere Pro: New Color Mode Guide</div>
+                    <div class="tutorial-meta">📅 Apr 2026 • 18 min • Premiere Pro</div>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=2KkMxCxGqMc" class="tutorial-card" target="_blank">
+                <img class="tutorial-thumb" src="https://img.youtube.com/vi/2KkMxCxGqMc/hqdefault.jpg">
+                <div class="tutorial-info">
+                    <div class="tutorial-title">Firefly: AI Image Generation Deep Dive</div>
+                    <div class="tutorial-meta">📅 Mar 2026 • 22 min • Firefly</div>
+                </div>
+            </a>
         </div>
     </div>
 
+    <!-- 3. START LEARNING (visual thumbnails, modern) -->
+    <div class="section">
+        <div class="section-title"><span class="pink-dot"></span> START LEARNING</div>
+        <div class="visual-tools-grid">
+            <a href="https://www.youtube.com/watch?v=2KkMxCxGqMc&list=PLMMOwZoEbhuxPY2JftdLPXxIIcO7QRBu_" class="tool-visual-card" target="_blank">
+                <img class="tool-thumb" src="https://img.youtube.com/vi/2KkMxCxGqMc/hqdefault.jpg">
+                <div class="tool-name">Firefly</div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=1xsg8nNCtfc&list=PLMMOwZoEbhuwMImBhitwZ6PhRQak0615K" class="tool-visual-card" target="_blank">
+                <img class="tool-thumb" src="https://img.youtube.com/vi/1xsg8nNCtfc/hqdefault.jpg">
+                <div class="tool-name">Lightroom</div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=wrHfscQEY04&list=PLMMOwZoEbhuw4NszLQhE9uX_IdD5rpWA0" class="tool-visual-card" target="_blank">
+                <img class="tool-thumb" src="https://img.youtube.com/vi/wrHfscQEY04/hqdefault.jpg">
+                <div class="tool-name">Premiere Pro</div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=2KkMxCxGqMc&list=PLMMOwZoEbhuwaTuOc60tRTsokYGTdEG39" class="tool-visual-card" target="_blank">
+                <img class="tool-thumb" src="https://img.youtube.com/vi/2KkMxCxGqMc/hqdefault.jpg">
+                <div class="tool-name">Photoshop</div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=m6w7eP5AKvM&list=PLMMOwZoEbhuwZ1J8GmHW19P8pylsT7Z2_" class="tool-visual-card" target="_blank">
+                <img class="tool-thumb" src="https://img.youtube.com/vi/m6w7eP5AKvM/hqdefault.jpg">
+                <div class="tool-name">Express</div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=7xmBvmfzzsg&list=PLMMOwZoEbhuz4RamFC4qMOUXpHWZgyS3E" class="tool-visual-card" target="_blank">
+                <img class="tool-thumb" src="https://img.youtube.com/vi/7xmBvmfzzsg/hqdefault.jpg">
+                <div class="tool-name">Illustrator</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 4. SCHEDULE (with search + show more) -->
+    <div class="section">
+        <div class="section-title"><span class="pink-dot"></span> UPCOMING STREAMS</div>
+        <div class="schedule-controls">
+            <div class="schedule-search">
+                <input type="text" id="scheduleSearch" placeholder="Search by topic, tool, or host...">
+            </div>
+            <button class="show-more-btn" id="showMoreBtn">Show More (+5)</button>
+        </div>
+        <div class="schedule-list" id="scheduleList">
+            <div class="schedule-item" data-keywords="mon photoshop mobile realism jack faulkner">
+                <span class="schedule-day">MON</span><span class="schedule-time">9:00 AM PT</span>
+                <span class="schedule-title">Hyper Realistic Storytelling on Photoshop Mobile</span>
+                <span class="schedule-description">with Jack Faulkner</span>
+                <div class="schedule-tools"><span class="tool-tag">Photoshop</span></div>
+            </div>
+            <div class="schedule-item" data-keywords="mon maddy photoshop plein air tiktok">
+                <span class="schedule-day">MON</span><span class="schedule-time">11:00 AM PT</span>
+                <span class="schedule-title">Virtual Plein Air (TikTok Version)</span>
+                <span class="schedule-description">with Maddy</span>
+                <div class="schedule-tools"><span class="tool-tag">Photoshop</span></div>
+            </div>
+            <div class="schedule-item" data-keywords="tue ted chin 90s nostalgia poster firefly express photoshop">
+                <span class="schedule-day">TUE</span><span class="schedule-time">9:00 AM PT</span>
+                <span class="schedule-title">90s Nostalgia Poster with Ted Chin</span>
+                <span class="schedule-description">Firefly Boards → Photoshop → Express</span>
+                <div class="schedule-tools"><span class="tool-tag">Express</span><span class="tool-tag">Firefly</span><span class="tool-tag">Photoshop</span></div>
+            </div>
+            <div class="schedule-item" data-keywords="tue office hours andrew nick firefly photoshop markup">
+                <span class="schedule-day">TUE</span><span class="schedule-time">10:00 AM PT</span>
+                <span class="schedule-title">Precision Flow and AI Markup | Office Hours</span>
+                <span class="schedule-description">with Andrew & Nick</span>
+                <div class="schedule-tools"><span class="tool-tag">Firefly</span><span class="tool-tag">Photoshop</span></div>
+            </div>
+            <div class="schedule-item" data-keywords="wed jorges.psd templates game days photoshop firefly express">
+                <span class="schedule-day">WED</span><span class="schedule-time">9:00 AM PT</span>
+                <span class="schedule-title">Creating Design Templates to Save Time on Game Days</span>
+                <span class="schedule-description">with Jorges.psd</span>
+                <div class="schedule-tools"><span class="tool-tag">Photoshop</span><span class="tool-tag">Firefly</span><span class="tool-tag">Express</span></div>
+            </div>
+            <div class="schedule-item schedule-hidden-more" data-keywords="wed ryan selvy mario golf news premiere pro">
+                <span class="schedule-day">WED</span><span class="schedule-time">10:00 AM PT</span>
+                <span class="schedule-title">File New: Why The Masters Looked Like Mario Golf</span>
+                <span class="schedule-description">Weekly news with Ryan Selvy</span>
+                <div class="schedule-tools"><span class="tool-tag">Premiere Pro</span></div>
+            </div>
+            <div class="schedule-item schedule-hidden-more" data-keywords="thu colton kooker documentary trailer colorgrading premiere pro beta">
+                <span class="schedule-day">THU</span><span class="schedule-time">9:00 AM PT</span>
+                <span class="schedule-title">Colorgrading a Documentary Trailer</span>
+                <span class="schedule-description">with Colton Kooker</span>
+                <div class="schedule-tools"><span class="tool-tag">Premiere Pro Beta</span></div>
+            </div>
+            <div class="schedule-item schedule-hidden-more" data-keywords="thu pixipui fast color grading premiere pro beta">
+                <span class="schedule-day">THU</span><span class="schedule-time">10:00 AM PT</span>
+                <span class="schedule-title">Fast Color Grading in Premiere</span>
+                <span class="schedule-description">with Pixipui</span>
+                <div class="schedule-tools"><span class="tool-tag">Premiere Pro Beta</span></div>
+            </div>
+            <div class="schedule-item schedule-hidden-more" data-keywords="thu jess goldsmith space case licensing firefly illustrator">
+                <span class="schedule-day">THU</span><span class="schedule-time">11:00 AM PT</span>
+                <span class="schedule-title">Space Case: Building an Art Licensing Collection</span>
+                <span class="schedule-description">with Jess Goldsmith</span>
+                <div class="schedule-tools"><span class="tool-tag">Firefly</span><span class="tool-tag">Illustrator</span></div>
+            </div>
+            <div class="schedule-item schedule-hidden-more" data-keywords="fri ryan selvy premiere color mode premiere pro beta">
+                <span class="schedule-day">FRI</span><span class="schedule-time">9:00 AM PT</span>
+                <span class="schedule-title">How to Use Premiere Color Mode</span>
+                <span class="schedule-description">with Ryan Selvy</span>
+                <div class="schedule-tools"><span class="tool-tag">Premiere Pro Beta</span></div>
+            </div>
+            <div class="schedule-item schedule-hidden-more" data-keywords="fri express student session standout designs">
+                <span class="schedule-day">FRI</span><span class="schedule-time">11:00 AM PT</span>
+                <span class="schedule-title">Designs That Stand Out! Student Session</span>
+                <span class="schedule-description">Adobe Express strategies</span>
+                <div class="schedule-tools"><span class="tool-tag">Express</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. COMMUNITY -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> COMMUNITY</div>
         <div class="community-row">
-            <div class="discord-card"><strong>DISCORD</strong><div class="member-count">👥 <span class="number">1,370+</span> members</div><a href="https://discord.com/invite/p48UBK3nX2" class="join-btn" target="_blank">Join Discord →</a></div>
-            <div class="spotlight"><strong>COMMUNITY SPOTLIGHT</strong><p style="font-size:0.8rem;color:#888;margin-top:0.2rem">Featured artwork from Discord members</p><img class="spotlight-img" src="https://placehold.co/800x450/121212/ff1493?text=Community+Artwork+Showcase"></div>
+            <div class="discord-card">
+                <strong>DISCORD</strong>
+                <div style="margin:0.5rem 0; font-size:0.75rem; color:#666;">Connect with creators</div>
+                <a href="https://discord.com/invite/p48UBK3nX2" class="join-btn" target="_blank">Join Discord →</a>
+            </div>
+            <div class="spotlight">
+                <strong>COMMUNITY SPOTLIGHT</strong>
+                <p style="font-size:0.75rem; color:#777; margin-top:0.2rem;">Featured artwork from Discord members</p>
+                <img class="spotlight-img" src="https://placehold.co/800x450/121212/ff1493?text=Community+Artwork+Showcase">
+            </div>
         </div>
     </div>
 
+    <!-- 6. RESOURCES -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> RESOURCES</div>
         <div class="resources-grid">
             <a href="https://firefly.adobe.com/boards/published/urn:aaid:sc:VA6C2:08f5567a-5a48-481d-a880-0c64f9ce89b7" class="resource-link" target="_blank">90s Nostalgia Challenge</a>
-            <a href="https://www.behance.net/resources#" class="resource-link" target="_blank">Career Resources & Apprenticeship</a>
-            <a href="https://www.adobe.com/express/ambassadors" class="resource-link" target="_blank">Become an Adobe Ambassador</a>
-            <a href="https://www.adobe.com/events.html" class="resource-link" target="_blank">Upcoming Adobe Events</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeCcEdo72rSWIBNgj_nXxyFzP55LUW-ItMDGIttmaSqZC8Lgg/viewform" class="resource-link" target="_blank">Community Spotlight Form</a>
+            <a href="https://www.behance.net/resources#" class="resource-link" target="_blank">Career Resources</a>
+            <a href="https://www.adobe.com/express/ambassadors" class="resource-link" target="_blank">Become an Ambassador</a>
+            <a href="https://www.adobe.com/events.html" class="resource-link" target="_blank">Upcoming Events</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeCcEdo72rSWIBNgj_nXxyFzP55LUW-ItMDGIttmaSqZC8Lgg/viewform" class="resource-link" target="_blank">Spotlight Form</a>
         </div>
     </div>
 
@@ -140,5 +645,43 @@
         <div class="copyright">Adobe Live — Where Creativity Meets Community</div>
     </div>
 </div>
+
+<script>
+    // Show More / Show Less
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const hiddenItems = document.querySelectorAll('.schedule-hidden-more');
+    let showingMore = false;
+
+    function updateScheduleVisibility() {
+        hiddenItems.forEach(item => {
+            if (showingMore) item.classList.remove('hidden');
+            else item.classList.add('hidden');
+        });
+        showMoreBtn.textContent = showingMore ? 'Show Less (−5)' : 'Show More (+5)';
+    }
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            showingMore = !showingMore;
+            updateScheduleVisibility();
+        });
+    }
+    updateScheduleVisibility();
+
+    // Search functionality
+    const searchInput = document.getElementById('scheduleSearch');
+    const allScheduleItems = document.querySelectorAll('.schedule-item');
+
+    function filterSchedule() {
+        const term = searchInput.value.toLowerCase().trim();
+        allScheduleItems.forEach(item => {
+            const keywords = item.getAttribute('data-keywords') || '';
+            const title = item.querySelector('.schedule-title')?.innerText.toLowerCase() || '';
+            const desc = item.querySelector('.schedule-description')?.innerText.toLowerCase() || '';
+            const matches = term === '' || keywords.includes(term) || title.includes(term) || desc.includes(term);
+            item.style.display = matches ? '' : 'none';
+        });
+    }
+    if (searchInput) searchInput.addEventListener('input', filterSchedule);
+</script>
 </body>
 </html>

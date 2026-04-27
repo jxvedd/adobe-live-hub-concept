@@ -37,7 +37,7 @@
             padding: 2rem 1.5rem;
         }
 
-        /* HEADER — cleaner now */
+        /* HEADER */
         .header {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -137,6 +137,56 @@
             box-shadow: 0 6px 16px rgba(255,20,147,0.3);
         }
 
+        /* QUICK ACTIONS — NEW! (Based on Isabel's feedback) */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .quick-action-card {
+            background: linear-gradient(135deg, #0c0c0c, #0a0a0a);
+            border: 1px solid #1c1c1c;
+            border-radius: 20px;
+            padding: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .quick-action-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--pink);
+            background: linear-gradient(135deg, #111, #0c0c0c);
+        }
+        .quick-action-icon {
+            font-size: 1.8rem;
+        }
+        .quick-action-text {
+            flex: 1;
+        }
+        .quick-action-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
+        .quick-action-sub {
+            font-size: 0.7rem;
+            color: #777;
+        }
+        .quick-action-arrow {
+            color: var(--pink);
+            font-size: 1.2rem;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        .quick-action-card:hover .quick-action-arrow {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
         /* TUTORIAL GRID */
         .tutorials-grid {
             display: grid;
@@ -180,7 +230,7 @@
             font-weight: 400;
         }
 
-        /* VISUAL TOOL CARDS — modern */
+        /* VISUAL TOOL CARDS */
         .visual-tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -443,12 +493,13 @@
             .schedule-item { flex-direction: column; align-items: flex-start; }
             .schedule-search input { width: 100%; }
             .logo { font-size: 2.8rem; }
+            .quick-actions-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- HEADER — clean, long subheader REMOVED -->
+    <!-- HEADER -->
     <div class="header">
         <h1 class="logo">ADOBE LIVE</h1>
         <p class="tagline">Where Creativity Meets Community</p>
@@ -468,7 +519,46 @@
         </div>
     </div>
 
-    <!-- 2. LATEST TUTORIALS (moved higher) -->
+    <!-- 2. QUICK ACTIONS (NEW! Based on Isabel Vang's feedback: "features to create widgets or shortcuts") -->
+    <div class="section">
+        <div class="section-title"><span class="pink-dot"></span> ⚡ QUICK ACTIONS</div>
+        <div class="quick-actions-grid">
+            <a href="https://firefly.adobe.com/" class="quick-action-card" target="_blank">
+                <div class="quick-action-icon">✨</div>
+                <div class="quick-action-text">
+                    <div class="quick-action-title">Open Firefly</div>
+                    <div class="quick-action-sub">Generate with AI</div>
+                </div>
+                <div class="quick-action-arrow">→</div>
+            </a>
+            <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" class="quick-action-card" target="_blank">
+                <div class="quick-action-icon">🎨</div>
+                <div class="quick-action-text">
+                    <div class="quick-action-title">Download Photoshop Trial</div>
+                    <div class="quick-action-sub">Free 7-day trial</div>
+                </div>
+                <div class="quick-action-arrow">→</div>
+            </a>
+            <a href="https://www.adobe.com/express/" class="quick-action-card" target="_blank">
+                <div class="quick-action-icon">📱</div>
+                <div class="quick-action-text">
+                    <div class="quick-action-title">Open Adobe Express</div>
+                    <div class="quick-action-sub">Quick social graphics</div>
+                </div>
+                <div class="quick-action-arrow">→</div>
+            </a>
+            <a href="https://creativecloud.adobe.com/discover/templates" class="quick-action-card" target="_blank">
+                <div class="quick-action-icon">📁</div>
+                <div class="quick-action-text">
+                    <div class="quick-action-title">Find a Template</div>
+                    <div class="quick-action-sub">Start any project faster</div>
+                </div>
+                <div class="quick-action-arrow">→</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. LATEST TUTORIALS -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> LATEST TUTORIALS</div>
         <div class="tutorials-grid">
@@ -496,7 +586,7 @@
         </div>
     </div>
 
-    <!-- 3. START LEARNING (visual thumbnails, modern) -->
+    <!-- 4. START LEARNING (visual tool buttons) -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> START LEARNING</div>
         <div class="visual-tools-grid">
@@ -527,7 +617,7 @@
         </div>
     </div>
 
-    <!-- 4. SCHEDULE (with search + show more) -->
+    <!-- 5. UPCOMING STREAMS (with search + show more) -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> UPCOMING STREAMS</div>
         <div class="schedule-controls">
@@ -606,7 +696,7 @@
         </div>
     </div>
 
-    <!-- 5. COMMUNITY -->
+    <!-- 6. COMMUNITY -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> COMMUNITY</div>
         <div class="community-row">
@@ -623,7 +713,7 @@
         </div>
     </div>
 
-    <!-- 6. RESOURCES -->
+    <!-- 7. RESOURCES -->
     <div class="section">
         <div class="section-title"><span class="pink-dot"></span> RESOURCES</div>
         <div class="resources-grid">
